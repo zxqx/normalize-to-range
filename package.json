@@ -1,0 +1,26 @@
+{
+  "name": "normalize-to-range",
+  "version": "0.0.0",
+  "description": "Normalize an array of objects to a specified range",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape ./test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zakangelle/normalize-to-range"
+  },
+  "keywords": [
+    "normalize",
+    "range"
+  ],
+  "author": "Zak Angelle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zakangelle/normalize-to-range/issues"
+  },
+  "homepage": "https://github.com/zakangelle/normalize-to-range",
+  "devDependencies": {
+    "tape": "^2.13.1"
+  }
+}
