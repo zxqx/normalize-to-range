@@ -56,7 +56,7 @@ test('Throw on null or undefined required argument', function(t) {
 });
 
 test('Throw on bad argument types', function(t) {
-  t.plan(3);
+  t.plan(4);
 
   var array = [
     { color: 'green', height: 2000 },
@@ -77,9 +77,13 @@ test('Throw on bad argument types', function(t) {
   t.throws(function() {
     normalize(array, 100, 'asdasfsf', 'height');
   });
+
+  t.throws(function() {
+    normalize(array, 100, 500, ['height']);
+  });
 });
 
-test('Throw when max is less than min', function(t) {
+test('Throw when max is less than or equal to min', function(t) {
   t.plan(1);
 
   var array = [

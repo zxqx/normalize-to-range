@@ -23,7 +23,7 @@ function normalizeToRange(array, min, max, field)
   if (field && Object.prototype.toString.call(field) !=='[object String]')
     throw new TypeError('Argument field must be a string');
 
-  if (max < min) throw 'Max can\'t be less than min';
+  if (max <= min) throw 'Max can\'t be less than or equal to min';
   
   var highValue = getHighValue(array, field);
   var divisor   = highValue / max;
