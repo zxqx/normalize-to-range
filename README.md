@@ -2,6 +2,11 @@
 
 Normalize an array of objects to a specified range.
 
+[![Build Status](https://travis-ci.org/zakangelle/normalize-to-range.png?branch=master)](https://travis-ci.org/zakangelle/normalize-to-range)
+
+[![browser support](https://ci.testling.com/zakangelle/normalize-to-range.png)
+](https://ci.testling.com/zakangelle/normalize-to-range)
+
 ## Installation
 
 ```
