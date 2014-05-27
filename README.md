@@ -1,6 +1,6 @@
 # normalize-to-range
 
-Normalize an array of objects to a specified range.
+Normalize an array of numbers or objects to a specified range.
 
 [![Build Status](https://travis-ci.org/zakangelle/normalize-to-range.png?branch=master)](https://travis-ci.org/zakangelle/normalize-to-range)
 
@@ -18,11 +18,15 @@ $ npm install normalize-to-range
 ```js
 var normalize = require('normalize-to-range');
 
-normalize(someArray, 0, 300, 'fieldName');
+// Arrays of objects
+normalize(someArrayOfObjects, 0, 300, 'propertyName');
+
+// Arrays of numbers
+normalize(someArrayOfNumbers, 0, 1000);
 ```
 
 ## Test
-Tests are done with `tape` by running:
+Tests are done with [tape](https://github.com/substack/tape) by running:
 
 ```
 $ npm test
