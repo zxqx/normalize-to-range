@@ -1,7 +1,7 @@
 var test      = require('tape');
 var normalize = require('../index.js');
 
-test('Basic normalizing', function(t) {
+test('Array of objects', function(t) {
   t.plan(2);
   
   var array = [
@@ -94,5 +94,29 @@ test('Throw when max is less than or equal to min', function(t) {
 
   t.throws(function() {
     normalize(array, 100, 40, 'height');
+  });
+});
+
+test('Throw when there\'s a non-number object value', function(t) {
+  t.plan(2);
+
+  var array = [
+    { color: 'green', height: '2000' },
+    { color: 'red', height: 1000 },
+    { color: 'purple', height: 500 }
+  ];
+
+  t.throws(function() {
+    normalize(array, 100, 600, 'height');
+  });
+
+  array = [
+    { color: 'green', height: ['butt', 'head' ] },
+    { color: 'red', height: 1000 },
+    { color: 'purple', height: 500 }
+  ];
+
+  t.throws(function() {
+    normalize(array, 100, 600, 'height');
   });
 });

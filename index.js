@@ -29,15 +29,31 @@ function normalizeToRange(array, min, max, field)
   var divisor   = highValue / max;
 
   return array.map(function(x) {
-    x[field] = x[field] / divisor;
-    if (x[field] < min) x[field] = min;
+    if (!field)
+      x = x / divisor;
+    else {
+      x[field] = x[field] / divisor;
+      if (x[field] < min) x[field] = min;
+    }
 
     return x;
   });
 }
-
+  
 function getHighValue(array, field) {
+  if (!field) {
+    array.map(function(x) {
+      if (Object.prototype.toString.call(x) !== '[object Number]')
+        throw new TypeError('Array values must be numbers');
+    });
+
+    return Math.max.apply(null, array);
+  }
+
   return Math.max.apply(null, array.map(function(x) {
+    if (Object.prototype.toString.call(x[field]) !== '[object Number]')
+      throw new TypeError('Field values must be numbers');
+
     return x[field];
   }));
 }
