@@ -47,7 +47,7 @@ function normalizeToRange(array, min, max, field)
 function getHighValue(array, field) {
   if (!field) {
     array.map(function(x) {
-      if (Object.prototype.toString.call(x) !== '[object Number]')
+      if (!isNumber(x))
         throw new TypeError('Array values must be numbers');
     });
 
@@ -55,9 +55,9 @@ function getHighValue(array, field) {
   }
 
   return Math.max.apply(null, array.map(function(x) {
-    if (x[field] === null || x[field] === undefined)
+    if (!provided(x[field]))
       throw new TypeError('Field not found');
-    if (Object.prototype.toString.call(x[field]) !== '[object Number]')
+    if (!isNumber(x[field]))
       throw new TypeError('Field values must be numbers');
 
     return x[field];
