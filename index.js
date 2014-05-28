@@ -4,6 +4,9 @@ function normalizeToRange(array, min, max, field)
 {
   if (array === null || array === undefined)
     throw new TypeError('Required argument array not provided');
+  
+  if (!array.length)
+    throw new TypeError('Array is empty');
 
   if (min === null || min === undefined)
     throw new TypeError('Required argument min not provided');
@@ -51,6 +54,8 @@ function getHighValue(array, field) {
   }
 
   return Math.max.apply(null, array.map(function(x) {
+    if (x[field] === null || x[field] === undefined)
+      throw new TypeError('Field not found');
     if (Object.prototype.toString.call(x[field]) !== '[object Number]')
       throw new TypeError('Field values must be numbers');
 

@@ -55,6 +55,26 @@ test('Throw on null or undefined required argument', function(t) {
   });
 });
 
+test('Throw on empty array', function(t) {
+  t.plan(1);
+
+  var array = [];
+
+  t.throws(function() {
+    normalize(array, 0, 100, 'height');
+  });
+});
+
+test('Throw on empty objects', function(t) {
+  t.plan(1);
+
+  var array = [{}, {}, {}];
+
+  t.throws(function() {
+    normalize(array, 0, 100, 'height');
+  });
+});
+
 test('Throw on bad argument types', function(t) {
   t.plan(4);
 
@@ -83,21 +103,21 @@ test('Throw on bad argument types', function(t) {
   });
 });
 
-test('Throw when max is less than or equal to min', function(t) {
+test('Throw when field name is bad', function(t) {
   t.plan(1);
 
   var array = [
-    { color: 'green', height: 2000 },
+    { color: 'green', height: '2000' },
     { color: 'red', height: 1000 },
     { color: 'purple', height: 500 }
   ];
 
   t.throws(function() {
-    normalize(array, 100, 40, 'height');
+    normalize(array, 100, 600, 'width');
   });
 });
 
-test('Throw when there\'s a non-number object value', function(t) {
+test('Throw when there\'s a non-number field value', function(t) {
   t.plan(2);
 
   var array = [
@@ -120,3 +140,22 @@ test('Throw when there\'s a non-number object value', function(t) {
     normalize(array, 100, 600, 'height');
   });
 });
+
+test('Throw when max is less than or equal to min', function(t) {
+  t.plan(2);
+
+  var array = [
+    { color: 'green', height: 2000 },
+    { color: 'red', height: 1000 },
+    { color: 'purple', height: 500 }
+  ];
+
+  t.throws(function() {
+    normalize(array, 100, 40, 'height');
+  });
+
+  t.throws(function() {
+    normalize(array, 100, 100, 'height');
+  });
+});
+
