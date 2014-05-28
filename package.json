@@ -36,5 +36,8 @@
   "homepage": "https://github.com/zakangelle/normalize-to-range",
   "devDependencies": {
     "tape": "^2.13.1"
+  },
+  "dependencies": {
+    "check-types": "^1.3.1"
   }
 }

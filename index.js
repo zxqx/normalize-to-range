@@ -1,30 +1,23 @@
 module.exports = normalizeToRange;
 
+var check = require('check-types');
+
 function normalizeToRange(array, min, max, field)
 {
-  if (!provided(array))
-    throw new TypeError('Required argument array not provided');
-
-  if (!provided(min))
-    throw new TypeError('Required argument min not provided');
-
-  if (!provided(max))
-    throw new TypeError('Required argument max not provided');
-
-  if (!isArray(array))
+  if (!check.array(array))
     throw new TypeError('Argument array must be an array');
 
-  if (!isNumber(min))
+  if (!check.number(min))
     throw new TypeError('Argument min must be a number');
 
-  if (!isNumber(max))
+  if (!check.number(max))
     throw new TypeError('Argument max must be a number');
 
-  if (field && !isString(field))
+  if (field && !check.string(field))
     throw new TypeError('Argument field must be a string');
 
   if (!array.length)
-    throw new TypeError('Array is empty');
+    throw new TypeError('Array must not be empty');
 
   if (max <= min)
     throw new TypeError('Max can\'t be less than or equal to min');
@@ -45,53 +38,20 @@ function normalizeToRange(array, min, max, field)
 }
   
 function getHighValue(array, field) {
-  if (!field) {
+  if (field) {
+    return Math.max.apply(null, array.map(function(x) {
+      if (!check.number(x[field]))
+        throw new TypeError('Field must be a number');
+
+      return x[field];
+    }));
+  }
+  else {
     array.map(function(x) {
-      if (!isNumber(x))
+      if (!check.number(x))
         throw new TypeError('Array values must be numbers');
     });
 
     return Math.max.apply(null, array);
   }
-
-  return Math.max.apply(null, array.map(function(x) {
-    if (!provided(x[field]))
-      throw new TypeError('Field not found');
-    if (!isNumber(x[field]))
-      throw new TypeError('Field values must be numbers');
-
-    return x[field];
-  }));
-}
-
-function provided(arg)
-{
-  if (arg === null || arg === undefined)
-    return false;
-  else
-    return true;
-}
-
-function isArray(arg)
-{
-  if (Object.prototype.toString.call(arg) === '[object Array]')
-    return true;
-  else
-    return false;
-}
-
-function isNumber(arg)
-{
-  if (Object.prototype.toString.call(arg) === '[object Number]')
-    return true;
-  else
-    return false;
-}
-
-function isString(arg)
-{
-  if (Object.prototype.toString.call(arg) === '[object String]')
-    return true;
-  else
-    return false;
 }
