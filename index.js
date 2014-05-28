@@ -17,10 +17,10 @@ function normalizeToRange(array, min, max, field)
     throw new TypeError('Argument field must be a string');
 
   if (!array.length)
-    throw new TypeError('Array must not be empty');
+    throw new Error('Array must not be empty');
 
   if (max <= min)
-    throw new TypeError('Max can\'t be less than or equal to min');
+    throw new Error('Max can\'t be less than or equal to min');
   
   var highValue = getHighValue(array, field);
   var divisor   = highValue / max;
