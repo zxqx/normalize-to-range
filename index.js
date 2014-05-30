@@ -37,7 +37,8 @@ function normalizeToRange(array, min, max, field)
   });
 }
   
-function getHighValue(array, field) {
+function getHighValue(array, field)
+{
   if (field) {
     return Math.max.apply(null, array.map(function(x) {
       if (!check.number(x[field]))
