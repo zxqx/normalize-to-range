@@ -4,11 +4,11 @@ var check = require('check-types');
 
 /**
  * Normalize an array of numbers or objects to a specific range
- * @param {Array} array
- * @param {Number} min Low end of range used to normalize
- * @param {Number} max High end of range used to normalize
- * @param {String} field (optional) Object property name whose value will be normalized 
- * @return {Array}
+ * @param {array} array
+ * @param {number} min Low end of range used to normalize
+ * @param {number} max High end of range used to normalize
+ * @param {string} field (optional) Object property name whose value will be normalized 
+ * @return {array}
  */
 function normalizeToRange(array, min, max, field)
 {
@@ -52,9 +52,9 @@ function normalizeToRange(array, min, max, field)
 
 /**
  * Get the highest value of an array of numbers or array of objects that contain number values
- * @param {Array} array
- * @param {String} field (optional) Object property name to reference when maxing 
- * @return {Number}
+ * @param {array} array
+ * @param {string} field (optional) Object property name to reference when maxing 
+ * @return {number}
  */
 function getHighValue(array, field)
 {
