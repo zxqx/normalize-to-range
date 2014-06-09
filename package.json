@@ -1,6 +1,6 @@
 {
   "name": "normalize-to-range",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "Normalize an array of numbers or objects to a specified range",
   "main": "index.js",
   "scripts": {
