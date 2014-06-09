@@ -34,11 +34,16 @@ function normalizeToRange(array, min, max, field)
   var divisor   = highValue / max;
 
   return array.map(function(x) {
-    if (!field)
-      x = x / divisor;
-    else {
+
+    // Array of objects
+    if (field) {
       x[field] = x[field] / divisor;
       if (x[field] < min) x[field] = min;
+    }
+
+    // Array of numbers
+    else {
+      x = x / divisor;
     }
 
     return x;
@@ -53,6 +58,7 @@ function normalizeToRange(array, min, max, field)
  */
 function getHighValue(array, field)
 {
+  // Array of objects
   if (field) {
     return Math.max.apply(null, array.map(function(x) {
       if (!check.number(x[field]))
@@ -61,6 +67,8 @@ function getHighValue(array, field)
       return x[field];
     }));
   }
+
+  // Array of numbers
   else {
     array.map(function(x) {
       if (!check.number(x))
