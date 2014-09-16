@@ -23,6 +23,9 @@ normalize(someArrayOfObjects, 0, 300, 'propertyName');
 
 // Arrays of numbers
 normalize(someArrayOfNumbers, 0, 1000);
+
+// By default normalizes between 0 and 1
+normalize(someArrayOfNumbers);
 ```
 
 ## Test

@@ -8,6 +8,13 @@ test('Array of numbers', function(t) {
   t.deepEquals(normalize(array, 0, 8), [1, 2, 3, 4, 5, 6, 7, 8]);
 });
 
+test('Default params', function(t) {
+  t.plan(1);
+
+  var array = [0, 100, 200];
+  t.deepEquals(normalize(array), [0, 0.5, 1]);
+});
+
 test('Throw when there\'s a non-number array value', function(t) {
   t.plan(2);
 
