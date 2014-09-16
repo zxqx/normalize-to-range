@@ -5,15 +5,20 @@ var check = require('check-types');
 /**
  * Normalize an array of numbers or objects to a specific range
  * @param {array} array
- * @param {number} min Low end of range used to normalize
- * @param {number} max High end of range used to normalize
- * @param {string} field (optional) Object property name whose value will be normalized 
+ * @param {number=} min Low end of range used to normalize, defaults to 0
+ * @param {number=} max High end of range used to normalize, defaults to 1
+ * @param {string=} field Object property name whose value will be normalized
  * @return {array}
  */
 function normalizeToRange(array, min, max, field)
 {
   if (!check.array(array))
     throw new TypeError('Argument array must be an array');
+
+  if (arguments.length === 1) {
+    min = 0;
+    max = 1;
+  }
 
   if (!check.number(min))
     throw new TypeError('Argument min must be a number');
