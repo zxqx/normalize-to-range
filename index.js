@@ -58,7 +58,7 @@ function normalizeToRange(array, min, max, field)
 /**
  * Get the highest value of an array of numbers or array of objects that contain number values
  * @param {array} array
- * @param {string} field (optional) Object property name to reference when maxing 
+ * @param {string=} field Object property name to reference when maxing 
  * @return {number}
  */
 function getHighValue(array, field)
