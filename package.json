@@ -38,6 +38,7 @@
     "tape": "^2.13.1"
   },
   "dependencies": {
+    "array-max": "^1.0.0",
     "check-types": "^1.3.1"
   }
 }
