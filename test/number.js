@@ -1,4 +1,4 @@
-var test      = require('tape');
+var test = require('tape');
 var normalize = require('../index.js');
 
 test('Array of numbers', function(t) {
@@ -13,20 +13,4 @@ test('Default params', function(t) {
 
   var array = [0, 100, 200];
   t.deepEquals(normalize(array), [0, 0.5, 1]);
-});
-
-test('Throw when there\'s a non-number array value', function(t) {
-  t.plan(2);
-
-  var array = [5, 10, 15, 20, 25, '30', 35, 40];
-
-  t.throws(function() {
-    normalize(array, 100, 600);
-  });
-
-  array = [5, 10, 15, 20, 25, { number: 35 }, 40];
-
-  t.throws(function() {
-    normalize(array, 100, 600);
-  });
 });

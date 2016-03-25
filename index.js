@@ -1,8 +1,5 @@
 module.exports = normalizeToRange;
 
-var arrayMax = require('array-max');
-var check    = require('check-types');
-
 /**
  * Normalize an array of numbers or objects to a specific range
  * @param {array} array
@@ -13,33 +10,28 @@ var check    = require('check-types');
  */
 function normalizeToRange(array, min, max, field)
 {
-  if (!check.array(array))
-    throw new TypeError('Argument array must be an array');
-
   if (arguments.length === 1) {
     min = 0;
     max = 1;
   }
-
-  if (!check.number(min))
-    throw new TypeError('Argument min must be a number');
-
-  if (!check.number(max))
-    throw new TypeError('Argument max must be a number');
-
-  if (field && !check.string(field))
-    throw new TypeError('Argument field must be a string');
 
   if (!array.length)
     throw new Error('Array must not be empty');
 
   if (max <= min)
     throw new Error('Max can\'t be less than or equal to min');
-  
-  var highValue = arrayMax(array, field);
-  var divisor   = highValue / max;
 
-  return array.map(function(x) {
+  var highValue = array.reduce((a, b) => {
+    if (field) {
+      return a[field] > b[field] ? a : b;
+    }
+
+    return Math.max(a, b);
+  });
+
+  var divisor = field ? highValue[field] / max : highValue / max;
+
+  return array.map(x => {
 
     // Array of objects
     if (field) {

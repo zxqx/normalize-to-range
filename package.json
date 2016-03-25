@@ -14,20 +14,6 @@
     "normalize",
     "range"
   ],
-  "testling": {
-    "files": "test/*.js",
-    "browsers": [
-      "ie/6..latest",
-      "chrome/28..canary",
-      "firefox/23..nightly",
-      "safari/5.1..latest",
-      "opera/latest",
-      "opera/next",
-      "iphone/latest",
-      "ipad/latest",
-      "android-browser/latest"
-    ]
-  },
   "author": "Zak Angelle",
   "license": "MIT",
   "bugs": {
@@ -37,8 +23,5 @@
   "devDependencies": {
     "tape": "^2.13.1"
   },
-  "dependencies": {
-    "array-max": "^1.0.0",
-    "check-types": "^1.3.1"
-  }
+  "dependencies": {}
 }
