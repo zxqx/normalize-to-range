@@ -13,7 +13,7 @@ $ npm install normalize-to-range
 ## Usage
 
 ```js
-var normalize = require('normalize-to-range');
+import normalize from 'normalize-to-range';
 
 // Arrays of objects
 normalize(someArrayOfObjects, 0, 300, 'propertyName');
