@@ -23,7 +23,7 @@ function normalizeToRange(array, min, max, field)
     throw new Error('Max can\'t be less than or equal to min');
   }
 
-  let highValue = array.reduce((a, b) => {
+  const highValue = array.reduce((a, b) => {
     if (field) {
       return a[field] > b[field] ? a : b;
     }
@@ -31,7 +31,7 @@ function normalizeToRange(array, min, max, field)
     return Math.max(a, b);
   });
 
-  let divisor = field ? highValue[field] / max : highValue / max;
+  const divisor = field ? highValue[field] / max : highValue / max;
 
   return array.map(x => {
 
