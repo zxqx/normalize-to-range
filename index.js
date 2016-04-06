@@ -15,13 +15,15 @@ function normalizeToRange(array, min, max, field)
     max = 1;
   }
 
-  if (!array.length)
+  if (!array.length) {
     throw new Error('Array must not be empty');
+  }
 
-  if (max <= min)
+  if (max <= min) {
     throw new Error('Max can\'t be less than or equal to min');
+  }
 
-  var highValue = array.reduce((a, b) => {
+  let highValue = array.reduce((a, b) => {
     if (field) {
       return a[field] > b[field] ? a : b;
     }
@@ -29,7 +31,7 @@ function normalizeToRange(array, min, max, field)
     return Math.max(a, b);
   });
 
-  var divisor = field ? highValue[field] / max : highValue / max;
+  let divisor = field ? highValue[field] / max : highValue / max;
 
   return array.map(x => {
 
