@@ -4,7 +4,8 @@
   "description": "Normalize an array of numbers or objects to a specified range",
   "main": "index.js",
   "scripts": {
-    "test": "tape ./test/**/*.js"
+    "test": "tape ./test/**/*.js",
+    "build:standalone": "mkdir -p dist && browserify index.js --standalone normalizeToRange > dist/normalize-to-range.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,7 @@
   },
   "homepage": "https://github.com/zakangelle/normalize-to-range",
   "devDependencies": {
+    "browserify": "^13.0.0",
     "tape": "^2.13.1"
-  },
-  "dependencies": {}
+  }
 }

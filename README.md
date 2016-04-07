@@ -43,3 +43,11 @@ Tests are done with [tape](https://github.com/substack/tape) by running:
 ```
 $ npm test
 ```
+
+## Standalone
+
+Generate a standalone build in `dist` (for use with `<script>` tags and AMD module loaders):
+
+```sh
+$ npm run build:standalone
+```
