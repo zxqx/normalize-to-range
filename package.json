@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "tape ./test/**/*.js",
-    "build:standalone": "mkdir -p dist && browserify index.js --standalone normalizeToRange > dist/normalize-to-range.js"
+    "build:standalone": "mkdir -p dist && browserify index.js --standalone normalize > dist/normalize-to-range.js"
   },
   "repository": {
     "type": "git",
