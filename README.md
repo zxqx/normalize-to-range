@@ -1,6 +1,6 @@
 # normalize-to-range
 
-Normalize an array of numbers or object values to a specified range.
+Normalize an array of numbers or object property values to a specified range.
 
 [![Build Status](https://travis-ci.org/zakangelle/normalize-to-range.svg?branch=master)](https://travis-ci.org/zakangelle/normalize-to-range)
 

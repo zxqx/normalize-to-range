@@ -1,7 +1,7 @@
 {
   "name": "normalize-to-range",
   "version": "1.4.0",
-  "description": "Normalize an array of numbers or objects to a specified range",
+  "description": "Normalize an array of numbers or object property values to a specified range",
   "main": "index.js",
   "scripts": {
     "test": "tape ./test/**/*.js",
