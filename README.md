@@ -2,7 +2,7 @@
 
 Normalize an array of numbers or object property values to a specified range.
 
-[![Build Status](https://travis-ci.org/zakangelle/normalize-to-range.svg?branch=master)](https://travis-ci.org/zakangelle/normalize-to-range)
+[![Circle CI](https://circleci.com/gh/zakangelle/normalize-to-range/tree/master.svg?style=shield)](https://circleci.com/gh/zakangelle/normalize-to-range/tree/master)
 
 ## Installation
 
