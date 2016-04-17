@@ -4,8 +4,9 @@
   "description": "Normalize an array of numbers or object property values to a specified range",
   "main": "index.js",
   "scripts": {
+    "build:standalone": "mkdir -p dist && browserify index.js --standalone normalize > dist/normalize-to-range.js",
     "test": "tape ./test/**/*.js",
-    "build:standalone": "mkdir -p dist && browserify index.js --standalone normalize > dist/normalize-to-range.js"
+    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,8 @@
   "homepage": "https://github.com/zakangelle/normalize-to-range",
   "devDependencies": {
     "browserify": "^13.0.0",
+    "coveralls": "^2.11.9",
+    "nyc": "^6.4.0",
     "tape": "^2.13.1"
   }
 }

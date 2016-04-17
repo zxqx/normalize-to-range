@@ -2,7 +2,7 @@
 
 Normalize an array of numbers or object property values to a specified range.
 
-[![Circle CI](https://circleci.com/gh/zakangelle/normalize-to-range/tree/master.svg?style=shield)](https://circleci.com/gh/zakangelle/normalize-to-range/tree/master)
+[![Circle CI](https://circleci.com/gh/zakangelle/normalize-to-range/tree/master.svg?style=shield)](https://circleci.com/gh/zakangelle/normalize-to-range/tree/master) [![Coverage Status](https://img.shields.io/coveralls/zakangelle/normalize-to-range.svg)](https://coveralls.io/github/zakangelle/normalize-to-range?branch=master)
 
 ## Installation
 
