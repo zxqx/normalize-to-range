@@ -51,3 +51,7 @@ Tests are done with [tape](https://github.com/substack/tape) by running:
 ```
 $ npm test
 ```
+
+## License
+
+MIT
