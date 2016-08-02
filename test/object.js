@@ -2,7 +2,7 @@ var test = require('tape');
 var normalize = require('../index.js');
 
 test('Array of objects', function(t) {
-  t.plan(2);
+  t.plan(3);
 
   var array = [
     { color: 'green', height: 2000 },
@@ -31,6 +31,20 @@ test('Array of objects', function(t) {
   ];
 
   t.deepEquals(normalize(array, 0, 10, 'height'), shouldEqual);
+
+  array = [
+    { color: 'green', height: 0 },
+    { color: 'red', height: 50 },
+    { color: 'purple', height: 100 }
+  ];
+
+  shouldEqual = [
+    { color: 'green', height: 100 },
+    { color: 'red', height: 500 },
+    { color: 'purple', height: 1000 }
+  ];
+
+  t.deepEquals(normalize(array, 100, 1000, 'height'), shouldEqual);
 });
 
 test('Throw on empty array', function(t) {

@@ -43,7 +43,7 @@ function normalizeToRange(array, min, max, field)
 
     // Array of numbers
     else {
-      x = x / divisor;
+      x = Math.max(x / divisor, min);
     }
 
     return x;
